@@ -1,0 +1,646 @@
+/* --------- Estilos Generales -------------------- */
+:root {
+  --oscuro: #086972;
+  --normal: #01a9b4;
+  --claro: #87dfd6;
+  --blanco: #dae1e7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+body {
+  background: rgb(224, 224, 224);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(rgba(224, 224, 224, 1)),
+    color-stop(25%, rgba(245, 245, 245, 1)),
+    color-stop(75%, rgba(245, 245, 245, 1)),
+    to(rgba(224, 224, 224, 1))
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(224, 224, 224, 1) 0%,
+    rgba(245, 245, 245, 1) 25%,
+    rgba(245, 245, 245, 1) 75%,
+    rgba(224, 224, 224, 1) 100%
+  );
+  overflow-x: hidden;
+  margin-top: 50px;
+}
+
+.btn {
+  width: 170px;
+  height: 40px;
+  background: var(--normal);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--oscuro);
+}
+
+/* --------- Botón ir arriba --------------------------- */
+
+#go-up-btn {
+  position: fixed;
+  bottom: -60px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  background: white;
+  color: var(--normal);
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 2px solid var(--normal);
+  margin-right: 10px;
+  font-size: 25px;
+  z-index: 20;
+  transition: 0.8s;
+  -webkit-transition: 0.8s;
+  -moz-transition: 0.8s;
+  -ms-transition: 0.8s;
+  -o-transition: 0.8s;
+}
+
+#go-up-btn:hover {
+  cursor: pointer;
+  border-color: var(--blanco);
+  color: var(--blanco);
+  font-weight: bold;
+  background-color: var(--normal);
+}
+
+/* --- Skews *-- */
+.skew-arriba {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-width: 10vh 100vw 0 0;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  z-index: 10;
+}
+
+.skew-abajo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 10vh 100vw;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+/* --------- Menú de Navegación ------------------------ */
+#cabecera {
+  position: relative;
+  width: 100%;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: var(--blanco);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 10;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.menu .logo {
+  margin-left: 10px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -webkit-box-pack: left;
+  justify-content: left;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.menu .logo img {
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.menu .logo h1 a {
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--oscuro);
+}
+
+.btn-menu {
+  display: none;
+  color: var(--oscuro);
+  font-size: 35px;
+  line-height: 50px;
+  width: 70px;
+  text-align: center;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.menu-links {
+  margin-right: 10px;
+}
+
+.menu-links-items {
+  display: -webkit-box;
+  display: flex;
+}
+
+.menu-links-items li {
+  list-style: none;
+}
+
+.menu-links-items li a {
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0 5px;
+  padding: 8px;
+  color: var(--oscuro);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  font-style: 16px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.menu-links-items li a.active,
+.menu-links-items li a:hover {
+  background: var(--normal);
+  color: white;
+}
+
+/* ------------ Imagen de cabecera ************************/
+.img-cabecera {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("./img/CabecraGestoria.jpg") no-repeat center center/cover;
+  background-attachment: fixed; /* Efecto parallax */
+}
+
+.welcome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+.welcome img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.welcome h1 {
+  font-size: 42px;
+  color: white;
+  text-align: center;
+}
+
+.welcome hr {
+  width: 400px;
+  height: 2px;
+  color: white;
+  margin-top: 5px;
+}
+
+.welcome p {
+  color: white;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* ---------- Sobre Nosotros --------------------------- */
+.sobre-nosotros {
+  width: 100%;
+  padding-top: 120px;
+}
+
+.about-container {
+  width: 80%;
+  margin: auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.about-container h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: var(--oscuro);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  text-align: center;
+  font-size: 16px;
+  line-height: 32px;
+  margin: 10px 0;
+}
+
+.about-galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 50px 0;
+  gap: 20px;
+}
+
+.about-galeria img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* --------- Donde estamos ----------------------------- */
+.donde {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("./img/PlazaEspana.jpg") no-repeat center center/cover;
+  background-attachment: fixed; /* Efecto parallax */
+  margin-top: 75px;
+}
+
+.deg-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.donde-container {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  padding: 100px 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.donde-title {
+  width: 50%;
+  border: 2px solid white;
+  border-radius: 10px;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+
+.donde-title h2 {
+  font-size: 35px;
+  color: white;
+  font-weight: bold;
+}
+
+.donde-title hr {
+  width: 50%;
+  height: 2px;
+  color: white;
+  margin: 10px auto;
+}
+
+.donde-direccion {
+  padding: 60px 0;
+}
+
+.donde-direccion p {
+  color: white;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.mapas {
+  padding-bottom: 20px;
+}
+
+/* ---------- Contacto ------------------------- */
+.contacto {
+  width: 100%;
+  margin: 120px 0;
+}
+
+.contacto-title {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.contacto-title h2 {
+  font-size: 50px;
+  color: var(--oscuro);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contacto-title hr {
+  width: 60%;
+  margin: auto;
+  height: 2px;
+  background: var(--oscuro);
+  border: none;
+}
+
+.contacto-content {
+  margin: 50px auto;
+}
+
+.contacto-content p {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--oscuro);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* --------- Formulario - Footer ---------------------------- */
+footer {
+  background: var(--normal);
+  line-height: 15px;
+  height: 15px;
+  font-size: 12px;
+  color: white;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* --------------- Aviso de Cookies ----------------------- */
+
+.aviso-cookies {
+  position: fixed;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  left: 0;
+  bottom: -50%;
+  width: 100%;
+  min-height: 4rem;
+  height: auto;
+  background-color: var(--oscuro);
+  -webkit-transition: 3s;
+  transition: 3s;
+}
+
+.aviso-cookies--show {
+  bottom: 0;
+}
+
+.aviso-cookies__text {
+  padding: 0 0.5rem 0 1.5rem;
+  color: var(--blanco);
+  font-size: 0.9rem;
+}
+
+.aviso-cookies__text > a {
+  color: var(--claro);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.aviso-cookies__btn {
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 15px;
+  background-color: var(--claro);
+  color: var(--oscuro);
+  border: none;
+  outline: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.aviso-cookies__btn:hover {
+  opacity: 0.9;
+}
+
+/* ------------------ Pagina de Cookies ------------------ */
+
+.cookies {
+  padding: 2rem 4rem;
+  font-family: "Raleway", sans-serif;
+  line-height: 26px;
+  text-align: justify;
+}
+
+.cookies h3 {
+  padding-bottom: 1rem;
+}
+
+.cookies p {
+  padding-bottom: 0.5rem;
+}
+
+.underline {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* --------- Media queries ----------------------------- */
+@media (max-width: 920px) {
+  .btn-menu {
+    display: initial;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  .menu-links {
+    position: absolute;
+    top: -350px;
+    left: 0;
+    background: var(--blanco);
+    width: 100%;
+    height: auto;
+    z-index: -5;
+    -webkit-transition: -webkit-transform 0.8s ease-in-out;
+    transition: -webkit-transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
+    -webkit-transition: transform 0.8s ease-in-out;
+    -moz-transition: transform 0.8s ease-in-out;
+    -ms-transition: transform 0.8s ease-in-out;
+    -o-transition: transform 0.8s ease-in-out;
+  }
+
+  .menu-links.show {
+    transform: translateY(400px);
+    -webkit-transform: translateY(400px);
+    -moz-transform: translateY(400px);
+    -ms-transform: translateY(400px);
+    -o-transform: translateY(400px);
+  }
+
+  .menu-links-items {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+
+  .menu-links-items li {
+    padding: 30px 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--normal);
+  }
+
+  .menu-links-items li a.active,
+  .menu-links-items li a:hover {
+    border: none;
+    background: none;
+    font-weight: bold;
+    color: var(--oscuro);
+  }
+
+  .about-galeria {
+    width: 80%;
+    grid-template-columns: 1fr;
+  }
+
+  .mapa iframe {
+    width: 480px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 500px) {
+  .menu .logo {
+    margin-left: 0;
+  }
+  .menu .logo img {
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu .logo h1 a {
+    margin-left: 5px;
+    font-size: 17px;
+  }
+
+  .about-galeria {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .contacto-title h2 {
+    font-size: 30px;
+  }
+
+  .donde-title h2 {
+    font-size: 25px;
+  }
+
+  .donde-direccion p {
+    font-size: 16px;
+  }
+
+  .about-container h1 {
+    font-size: 35px;
+  }
+
+  .mapa iframe {
+    width: 340px;
+    height: 255px;
+  }
+}
